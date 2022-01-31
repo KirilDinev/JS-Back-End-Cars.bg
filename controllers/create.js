@@ -2,8 +2,15 @@ module.exports = {
     get(req, res) {
         res.render('create', { title: 'Create Listing' })
     },
-    post(req, res) {
-        console.log(req.body);
+    async post(req, res) {
+        const car = {
+            name: req.body.name,
+            description: req.body.description,
+            imageURL: req.body.imageURL,
+            price: Number(req.body.price)
+        }
+
+        await req.storage.createCar(car);
 
         res.redirect('/')
     }
