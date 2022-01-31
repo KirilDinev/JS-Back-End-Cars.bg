@@ -1,0 +1,24 @@
+{
+  "name": "03.-cubicle-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KirilDinev/JS-Back-End-cars.bg.git"
+  },
+  "keywords": [],
+  "author": "KD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KirilDinev/JS-Back-End-cars.bg/issues"
+  },
+  "homepage": "https://github.com/KirilDinev/JS-Back-End-cars.bg#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2"
+  }
+}
