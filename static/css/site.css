@@ -87,6 +87,7 @@ p.name {
     text-transform: uppercase;
     padding: 10px;
     border-bottom: 1px solid #2b415433;
+    height: 60px;
 }
 
 button, main a.btn {
@@ -258,4 +259,12 @@ footer {
     to {
         opacity: 0;
     }
+}
+
+.description p{
+    margin: 10px;
+}
+
+.description {
+    display: none;
 }
