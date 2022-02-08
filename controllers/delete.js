@@ -8,6 +8,7 @@ module.exports = {
         } else {
             res.redirect('404');
         }
+        
     },
     async post(req, res) {
         const id = req.params.id;
@@ -16,7 +17,7 @@ module.exports = {
             await req.storage.deleteById(id);
             res.redirect('/')
         } catch (err) {
-            console.log('Attempted to delete nopn-existend ID', id);
+            console.log('Attempted to delete non-existend ID', id);
             res.redirect('/404')
         }
     }

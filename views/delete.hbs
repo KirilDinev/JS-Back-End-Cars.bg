@@ -1,7 +1,7 @@
 <h1>Delete Listing</h1>
 <div class="form">
     {{#with car}}
-    <form action='/delete/:{{id}}' method="POST" disabled>
+    <form action='/delete/{{id}}' method="POST" disabled>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" value="{{name}}" disabled>
         <label for="name">Description</label>
