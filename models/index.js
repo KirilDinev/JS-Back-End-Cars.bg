@@ -1,7 +1,7 @@
-const req = require('express/lib/request');
 const mongoose = require('mongoose');
 
-require('./Car.js')
+require('./Car.js');
+require('./Accessory.js');
 
 const connectionString = 'mongodb://localhost:27017/carbicle';
 

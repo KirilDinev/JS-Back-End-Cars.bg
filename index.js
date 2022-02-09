@@ -3,15 +3,19 @@ const hbs = require('express-handlebars');
 
 const initDb = require('./models/index.js');
 
-const carService = require('./services/cars.js')
+const carService = require('./services/cars.js');
+const accessoryService = require('./services/accessory.js');
 
 const { about } = require('./controllers/about.js');
 const create = require('./controllers/create.js');
 const { details } = require('./controllers/details.js');
 const { home } = require('./controllers/home.js');
 const { notFound } = require('./controllers/notFound.js');
+
 const deleteCar = require('./controllers/delete.js');
 const edit = require('./controllers/edit.js');
+const accessory = require('./controllers/accessory.js');
+const attach = require('./controllers/attach.js');
 
 start();
 
@@ -28,6 +32,7 @@ async function start() {
     app.use(express.urlencoded({ extended: true }));
     app.use('/static', express.static('static'));
     app.use(carService());
+    app.use(accessoryService())
 
     app.get('/', home);
     app.get('/about', about);
@@ -35,7 +40,9 @@ async function start() {
 
     app.route('/create').get(create.get).post(create.post);
     app.route('/delete/:id').get(deleteCar.get).post(deleteCar.post);
-    app.route('/edit/:id').get(edit.get).post(edit.post)
+    app.route('/edit/:id').get(edit.get).post(edit.post);
+    app.route('/accessory').get(accessory.get).post(accessory.post);
+    app.route('/attach/:id').get(attach.get).post(attach.post);
 
     app.all('*', notFound)
 

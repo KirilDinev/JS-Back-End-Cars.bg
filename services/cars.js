@@ -7,13 +7,12 @@ function carViewModel(car) {
         id: car._id,
         name: car.name,
         description: car.description,
-        imageURL: car.imageURL,
+        imageURL: car.imageURL || undefined,
         price: car.price,
     }
 }
 
 async function getAll(query) {
-    console.log(query);
     const options = {};
 
     if (query.search) {
@@ -28,7 +27,7 @@ async function getAll(query) {
         }
         options.price.$lte = Number(query.to)
     }
-    console.log(options);
+
     const cars = await Car.find(options)
     return cars.map(carViewModel);
 }
@@ -50,11 +49,16 @@ async function createCar(car) {
 
 
 async function deleteById(id) {
-    await Car.findByIdAndDelete(id)
+    await Car.findByIdAndDelete(id);
 }
 
 async function updateById(id, car) {
-    await Car.findByIdAndUpdate(id, car)
+    const existing = await Car.findById(id);
+    existing.name = car.name;
+    existing.description = car.description;
+    existing.imageURL = car.imageURL;
+    existing.price = car.price;
+    await existing.save();
 }
 
 module.exports = () => (req, res, next) => {
