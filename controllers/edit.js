@@ -18,7 +18,7 @@ module.exports = {
             price: Number(req.body.price)
 
         }
-        console.log(id);
+
         try {
             await req.storage.updateById(id, car);
             res.redirect('/')
